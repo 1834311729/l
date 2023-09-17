@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+	int elevator;
+	int passenger_floor;
+	int aim_floor;
+	int time = 0;
+	int passenger_number = 0;
+
+	scanf("%d %d %d", &passenger_floor, &aim_floor, &elevator);
+	//电梯开始运行
+	printf("%d %d %d\n", elevator, time, passenger_number);
+	//到达乘客所在楼层
+	time = abs(passenger_floor - elevator);
+	elevator = passenger_floor;
+	passenger_number++;
+	printf("%d %d %d\n", elevator, time, passenger_number);
+	//送乘客到目标楼层
+	time = time + abs(passenger_floor - aim_floor);
+	passenger_number--;
+	elevator = aim_floor;
+	printf("%d %d %d\n", elevator, time, passenger_number);
+
+	return 0;
+}
